@@ -1,3 +1,3 @@
 **Determine the number of protein sequences in the chloroplast**
-1. Code: "wc -c coffee_chloroplast.fasta"
-2. The result is 31027 protein sequences
+1. Code: "grep -c ">" coffee_chloroplast.fasta"
+2. The result is 85 protein sequences
