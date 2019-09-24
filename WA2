@@ -10,3 +10,5 @@
 1. Code: "grep -c "photosystem" coffee_chloroplast.fasta"
 2. The result is 22 photosystem subunits
 
+**Make a .fasta file with the sequences for ATP synthase CF1 beta subunit protein sequence.**
+1. 
