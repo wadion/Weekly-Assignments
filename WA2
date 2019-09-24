@@ -1,3 +1,9 @@
 **Determine the number of protein sequences in the chloroplast**
 1. Code: "grep -c ">" coffee_chloroplast.fasta"
 2. The result is 85 protein sequences
+
+**Create a file of all of the names of protein sequences in Coffee plant's chloroplast sequences**
+1. Code: "grep -h ">" coffee_chloroplast.fasta >coffee_chloroplast_sequences.fasta"
+2. The result is a file named "coffee_chloroplast_sequences.fasta" that lists the names of all the protein sequences in a coffee plant's chloroplast
+
+**
