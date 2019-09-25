@@ -5,6 +5,8 @@
 **Create a file of all of the names of protein sequences in Coffee plant's chloroplast sequences.**
 1. Code: "grep -h ">" coffee_chloroplast.fasta >coffee_chloroplast_sequences.fasta"
 2. The result is a file named "coffee_chloroplast_sequences.fasta" that lists the names of all the protein sequences in a coffee plant's chloroplast
+3. Code: " head -85 coffee_chloroplast_sequences.fasta"
+4. This lets you confirm that you made the file correctly
 
 **How many photosystem subunits are present in the chromosome?**  --------
 1. Code: "grep -c "photosystem" coffee_chloroplast.fasta"
@@ -12,8 +14,10 @@
 3. Code: "grep "photosystem" coffee_chloroplast.fasta
 4. This shows that not everything with "photosystem" in the name is a photosystem subunit, so I need to make my code more specific
 5. Code: " grep "photosystem" coffee_chloroplast.fasta | grep "subunit" "
-6. Final answer: There are three items that are "photosystem subunits"
+6. Final answer: There are three "photosystem subunits" present on the chromosome
 
 **Make a .fasta file with the sequences for ATP synthase CF1 beta subunit protein sequence.**
 1. Code: "grep -A1 "ATP synthase CF1 beta" coffee_chloroplast.fasta > ATP_synthase_CF1_beta_subunit_protein_sequence.fasta"
 2. This makes a .fasta file with the protein sequence for the ATP synthase CF1 beta subunit from NC_008535
+3. Code: "head ATP_synthase_CF1_beta_subunit_protein_sequence.fasta"
+4. This confirms that you made a .fasta file with the sequences for ATP synthase CF1 beta subunit protein sequence
