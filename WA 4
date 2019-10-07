@@ -1,3 +1,7 @@
+## Move Everything to /scratch_30_day_tmp/wadion and operate from this location##
+Code: "cd /scratch_30_day_tmp/wadion
+cd Weekly_Assignments"
+
 1. "Download the assembly for Carboxydothermus hydrogenoformans Z2901 from NCBI using the NCBI e-utilities accession number CP000141.1"
 2. Code: efetch -db=sequences -id=CP000141.1 -format=gb>C_hydro.gbk
 
@@ -17,10 +21,10 @@
 14. Code to download raw sequences as .fastq: "gdown.pl https://drive.google.com/file/d/1PWWO5wVRRThLBXXEZjyWZHIb9udVcnCS/edit C.ferri_R1.fastq
 15. gdown.pl https://drive.google.com/file/d/1mZFvpSIctuBihkOlQX9vhrkxng3cRmvK/edit C.ferri_R2.fastq"
 16. Code to run FastQC on read 1: "fastqc C.ferri_R1.fastq"
-17. Access quality data: "file:///H:/Weekly_Assignments/C.ferri_R1_fastqc.html"
+17. Access quality data: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1_fastqc.html"
 18. #### Is this a good quality run? --> Almost. All criteria pass except for the "Overrepresented sequences" section (which failed). Upon further review, it appears that there are leftover Illumina Paired End PCR Primer 2 sequences. Trimming is required to remove adaptors.
 19. Code to run FastQC on read 2: "fastqc C.ferri_R2.fastq"
-20. Access quality data: "file:///H:/Weekly_Assignments/C.ferri_R2_fastqc.html"
+20. Access quality data: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2_fastqc.html"
 21. #### Is this a good quality run? --> Almost. All criteria pass except for the "Overrepresented sequences" section (which failed). Upon further review, it appears that there are leftover Illumina Single End PCR Primer 1 sequences. Trimming is required to remove adaptors.
 
 22. "Use cutadapt to remove adaptors"
@@ -28,7 +32,7 @@
 24. ##### Note: I used the primers sequences from "file:///H:/Weekly_Assignments/C.ferri_R1_fastqc.html#M9"
 25. Code to check the quality of my cleaned-up sequences: "fastqc C.ferri_R1.cutadapt.fastq
 26. fastqc C.ferri_R2.cutadapt.fastq"
-27. The cleaned-up files (C.ferri_R1.cutadapt.fastq and fastqc C.ferri_R2.cutadapt.fastq) have no failures, but they each have warnings for the "Sequence Length Distribution" criteria.
+27. The cleaned-up files (C.ferri_R1.cutadapt.fastq and fastqc C.ferri_R2.cutadapt.fastq) have no failures, but they each have warnings for the "Sequence Length Distribution" criteria. Locations of the files: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1.cutadapt_fastqc.html" "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2.cutadapt_fastqc.html"
 28. ##### C.ferri_R1.fastq had 40,383 reads in total with adapters
 29. ##### C.ferri_R2.fastq had 20,270 reads in total with adapters
 
