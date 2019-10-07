@@ -1,6 +1,6 @@
 ## Move Everything to /scratch_30_day_tmp/wadion and operate from this location##
-Code: "cd /scratch_30_day_tmp/wadion
-cd Weekly_Assignments"
+Code: cd /scratch_30_day_tmp/wadion
+Code: cd WA_4
 
 1. "Download the assembly for Carboxydothermus hydrogenoformans Z2901 from NCBI using the NCBI e-utilities accession number CP000141.1"
 2. Code: efetch -db=sequences -id=CP000141.1 -format=fasta>C_hydro.fasta
@@ -10,8 +10,8 @@ cd Weekly_Assignments"
 5. Code for read 2: gdown.pl https://drive.google.com/file/d/1mZFvpSIctuBihkOlQX9vhrkxng3cRmvK/edit C.ferri_R2.fasta
 
 6. "Use bowtie2 to map the raw sequencing reads to the reference (Z2901)"
-7. Code to use bowtie2 to index my reference genome: "bowtie2-build C_hydro.fasta C.hydro_WA4"
-8. Code to use bowtie2 to map the raw sequencing reads to the reference: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.fasta -2 C.ferri_R2.fasta -S 6008.sam"
+7. Code to use bowtie2 to index my reference genome: bowtie2-build C_hydro.fasta C.hydro_WA4
+8. Code to use bowtie2 to map the raw sequencing reads to the reference: bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.fasta -2 C.ferri_R2.fasta -S WA_4.sam
 9. This shows 27.22% aligned concordantly 0 time, 68.85% aligned concordantly 1 time, and 3.93% aligned >1 times. 74.52% overall alignment rate.
 
 10. "Use Fastq to assess the quality of each of these files"
