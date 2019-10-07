@@ -15,25 +15,25 @@ Code: cd WA_4
 9. This shows 27.22% aligned concordantly 0 time, 68.85% aligned concordantly 1 time, and 3.93% aligned >1 times. 74.52% overall alignment rate.
 
 10. "Use Fastq to assess the quality of each of these files"
-11. Code to download raw sequences as .fastq: "gdown.pl https://drive.google.com/file/d/1PWWO5wVRRThLBXXEZjyWZHIb9udVcnCS/edit C.ferri_R1.fastq
-12. gdown.pl https://drive.google.com/file/d/1mZFvpSIctuBihkOlQX9vhrkxng3cRmvK/edit C.ferri_R2.fastq"
-13. Code to run FastQC on read 1: "fastqc C.ferri_R1.fastq"
-14. Access quality data: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1_fastqc.html"
+11. Code to download R1 raw sequences as .fastq: gdown.pl https://drive.google.com/file/d/1PWWO5wVRRThLBXXEZjyWZHIb9udVcnCS/edit C.ferri_R1.fastq
+12. Code to download R2 raw sequences as .fastq: gdown.pl https://drive.google.com/file/d/1mZFvpSIctuBihkOlQX9vhrkxng3cRmvK/edit C.ferri_R2.fastq
+13. Code to run FastQC on read 1: fastqc C.ferri_R1.fastq
+14. Access quality data: file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1_fastqc.html
 15. #### Is this a good quality run? --> Almost. All criteria pass except for the "Overrepresented sequences" section (which failed). Upon further review, it appears that there are leftover Illumina Paired End PCR Primer 2 sequences. Trimming is required to remove adaptors.
-16. Code to run FastQC on read 2: "fastqc C.ferri_R2.fastq"
-17. Access quality data: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2_fastqc.html"
+16. Code to run FastQC on read 2: fastqc C.ferri_R2.fastq
+17. Access quality data: file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2_fastqc.html
 18. #### Is this a good quality run? --> Almost. All criteria pass except for the "Overrepresented sequences" section (which failed). Upon further review, it appears that there are leftover Illumina Single End PCR Primer 1 sequences. Trimming is required to remove adaptors.
 
 19. "Use cutadapt to remove adaptors"
-20. Code: "cutadapt -q 20,20 -a GATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATATCGTATGCCGT -A CGGTTCAGCAGGAATGCCGAGATCGGAAGAGCGGTTCAGCAGGAATGCCG -m 50 --max-n 0 -o C.ferri_R1.cutadapt.fastq -p C.ferri_R2.cutadapt.fastq C.ferri_R1.fastq C.ferri_R2.fastq"
-21. ##### Note: I used the primers sequences from "file:///H:/Weekly_Assignments/C.ferri_R1_fastqc.html#M9"
-22. Code to check the quality of my cleaned-up sequences: "fastqc C.ferri_R1.cutadapt.fastq
-23. fastqc C.ferri_R2.cutadapt.fastq"
+20. Code: cutadapt -q 20,20 -a GATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATATCGTATGCCGT -A CGGTTCAGCAGGAATGCCGAGATCGGAAGAGCGGTTCAGCAGGAATGCCG -m 50 --max-n 0 -o C.ferri_R1.cutadapt.fastq -p C.ferri_R2.cutadapt.fastq C.ferri_R1.fastq C.ferri_R2.fastq
+21. ##### Note: I used the primers sequences from the initial fastqc file
+22. Code to check the quality of my cleaned-up R1 sequence: fastqc C.ferri_R1.cutadapt.fastq
+23. Code to check the quality of my cleaned-up R2 sequence: fastqc C.ferri_R2.cutadapt.fastq
 24. The cleaned-up files (C.ferri_R1.cutadapt.fastq and fastqc C.ferri_R2.cutadapt.fastq) have no failures, but they each have warnings for the "Sequence Length Distribution" criteria. Locations of the files: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1.cutadapt_fastqc.html" "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2.cutadapt_fastqc.html"
 25. ##### C.ferri_R1.fastq had 40,383 reads in total with adapters
 26. ##### C.ferri_R2.fastq had 20,270 reads in total with adapters
 
 27. "Use bowtie2 to map the C. ferrireducens read to the reference"
-28. Code: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.cutadapt.fastq -2 C.ferri_R2.cutadapt.fastq -S 6008.sam"
+28. Code: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.cutadapt.fastq -2 C.ferri_R2.cutadapt.fastq -S WA_4_final.sam"
 29. 23.00% aligned concordanlty 0 times, 72.87% aligned concordantly 1 time, 4.13% aligned concordantly >1 times 
 30. 78.64% overall alignment rate
