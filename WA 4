@@ -14,8 +14,8 @@ cd Weekly_Assignments"
 8. pip install --user biopython
 9. python genbank_to_fasta.py C_hydro.gbk C.hydro_WA4.fasta
 10. Code to use bowtie2 to index my reference genome: "bowtie2-build C.hydro_WA4.fasta C.hydro_WA4"
-11. Code to use bowtie2 to map the raw sequencing reads to the reference: " bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.fasta -2 C.ferri_R2.fasta -S 6008.sam"
-12. This shows 100.00% aligned concordantly and there was a 0.00% overall alignment rate
+11. Code to use bowtie2 to map the raw sequencing reads to the reference: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.fasta -2 C.ferri_R2.fasta -S 6008.sam"
+12. This shows 100.00% aligned concordantly 0 times and there was a 0.00% overall alignment rate
 
 13. "Use Fastq to assess the quality of each of these files"
 14. Code to download raw sequences as .fastq: "gdown.pl https://drive.google.com/file/d/1PWWO5wVRRThLBXXEZjyWZHIb9udVcnCS/edit C.ferri_R1.fastq
@@ -37,6 +37,6 @@ cd Weekly_Assignments"
 29. ##### C.ferri_R2.fastq had 20,270 reads in total with adapters
 
 30. "Use bowtie2 to map the C. ferrireducens read to the reference"
-31. Code: " bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.cutadapt.fastq -2 C.ferri_R2.cutadapt.fastq -S 6008.sam"
+31. Code: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.cutadapt.fastq -2 C.ferri_R2.cutadapt.fastq -S 6008.sam"
 32. 0% of the reads mapped to the reference genome
 33. 100% of the reads did not map to the reference genome
