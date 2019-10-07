@@ -3,17 +3,15 @@ Code: "cd /scratch_30_day_tmp/wadion
 cd Weekly_Assignments"
 
 1. "Download the assembly for Carboxydothermus hydrogenoformans Z2901 from NCBI using the NCBI e-utilities accession number CP000141.1"
-2. Code: efetch -db=sequences -id=CP000141.1 -format=gb>C_hydro.gbk
+2. Code: efetch -db=sequences -id=CP000141.1 -format=fasta>C_hydro.fasta
 
 3. "Download the raw sequencing reads for Carboxydothermus ferrireducens from the google drive"
 4. Code for read 1: gdown.pl https://drive.google.com/file/d/1PWWO5wVRRThLBXXEZjyWZHIb9udVcnCS/edit C.ferri_R1.fasta
 5. Code for read 2: gdown.pl https://drive.google.com/file/d/1mZFvpSIctuBihkOlQX9vhrkxng3cRmvK/edit C.ferri_R2.fasta
 
 6. "Use bowtie2 to map the raw sequencing reads to the reference (Z2901)"
-7. Code to convert from .gbk to .fasta: wget https://raw.githubusercontent.com/stechtmann/BL4300-5300/master/scripts/genbank_to_fasta.py
-8. pip install --user biopython
-9. python genbank_to_fasta.py C_hydro.gbk C.hydro_WA4.fasta
-10. Code to use bowtie2 to index my reference genome: "bowtie2-build C.hydro_WA4.fasta C.hydro_WA4"
+*****************************************
+10. Code to use bowtie2 to index my reference genome: "bowtie2-build C_hydro.fasta C.hydro_WA4"
 11. Code to use bowtie2 to map the raw sequencing reads to the reference: "bowtie2 -x C.hydro_WA4 -1 C.ferri_R1.fasta -2 C.ferri_R2.fasta -S 6008.sam"
 12. This shows 100.00% aligned concordantly 0 times and there was a 0.00% overall alignment rate
 
