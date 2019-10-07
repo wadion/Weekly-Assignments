@@ -26,7 +26,7 @@ Code: cd WA_4
 
 19. "Use cutadapt to remove adaptors"
 20. Code: cutadapt -q 20,20 -a GATCGGAAGAGCGGTTCAGCAGGAATGCCGAGACCGATATCGTATGCCGT -A CGGTTCAGCAGGAATGCCGAGATCGGAAGAGCGGTTCAGCAGGAATGCCG -m 50 --max-n 0 -o C.ferri_R1.cutadapt.fastq -p C.ferri_R2.cutadapt.fastq C.ferri_R1.fastq C.ferri_R2.fastq
-21. ##### Note: I used the primer sequences from the initial fastqc file
+21. ##### Note: I used the primer sequences from the initial fastqc file that were flagged as "overrepresented sequnces"
 22. Code to check the quality of my cleaned-up R1 sequence: fastqc C.ferri_R1.cutadapt.fastq
 23. Code to check the quality of my cleaned-up R2 sequence: fastqc C.ferri_R2.cutadapt.fastq
 24. The cleaned-up files (C.ferri_R1.cutadapt.fastq and fastqc C.ferri_R2.cutadapt.fastq) have no failures, but they each have warnings for the "Sequence Length Distribution" criteria. Locations of the files: "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R1.cutadapt_fastqc.html" "file:///H:/BL5300/Weekly%20Assignments/WA%204/C.ferri_R2.cutadapt_fastqc.html"
