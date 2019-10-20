@@ -2,4 +2,6 @@
 2. Make a new directory for the assignment: mkdir WA_6
 3. Move into the new directory: cd WA_6
 4. Download the list of proteins from the unknown thermophile: wget https://github.com/stechtmann/BL4300-5300/raw/master/data/Weekly_Assignment_data/Unk_therm.faa
-5. Make a blastable database for those protein sequences:
+5. Make a blastable database for those protein sequences: makeblastdb -in Unk_therm.faa -dbtype prot -title Unk_therm.faa
+6. Download the hsp.fasta: wget https://github.com/stechtmann/BL4300-5300/raw/master/data/Weekly_Assignment_data/HSP_prot.fasta
+7. Run a BLASTP against the unknown thermophile proteins with the hsp.fasta as the query (so, we are using known heat shock proteins from the hsp.fasta file to look for heat shock proteins in the unknown thermophile's protein list): 
