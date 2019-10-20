@@ -1,0 +1,5 @@
+1. Move the to scratch folder: cd /scratch_30_day_tmp/wadion
+2. Make a new directory for the assignment: mkdir WA_6
+3. Move into the new directory: cd WA_6
+4. Download the list of proteins from the unknown thermophile: wget https://github.com/stechtmann/BL4300-5300/raw/master/data/Weekly_Assignment_data/Unk_therm.faa
+5. Make a blastable database for those protein sequences:
