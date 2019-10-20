@@ -14,5 +14,5 @@
   10.d (Unk_1860): Looks okay - 31% identity with an alignment length of 120 is good, the E value is also good at 2.20e-14
   10.e (Unk_1970): Looks great - 33% identity with an alignment length of 625 bp and an E value of 1.76e-54 
   10.f (Unk_1985): Looks okay - 32% identity and an alignment length of 123 bp checks out, there is also an E value of 6.01e-17
-11. (3) How many HSP have paralogs?: Two - Unk_1985 and Unk 1860 are paralogs
-12. (4) Provide a justification for the presence of paralogs: 
+11. (3) How many HSP have paralogs?: Two - Unk_1985 and Unk_1860 are paralogs
+12. (4) Provide a justification for the presence of paralogs: Both Unk_1985 and Unk_1860 were found to have likely homologs in the same organism, WP_103686269.1. This means that this genome has two putative heat shock proteins in it, and paralogs are defined as homologous proteins in the same lineage. So, this organism has two likely heat shock proteins in its genome (that "matched" with Unk_1985 and Unk_1860), makin them paralogs.
