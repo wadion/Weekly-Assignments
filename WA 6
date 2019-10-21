@@ -4,7 +4,7 @@
 4. Download the list of proteins from the unknown thermophile: wget https://github.com/stechtmann/BL4300-5300/raw/master/data/Weekly_Assignment_data/Unk_therm.faa
 5. Make a blastable database for those protein sequences: makeblastdb -in Unk_therm.faa -dbtype prot -title Unk_therm.faa
 6. Download the hsp.fasta: wget https://github.com/stechtmann/BL4300-5300/raw/master/data/Weekly_Assignment_data/HSP_prot.fasta
-7. Run a BLASTP against the unknown thermophile proteins with the hsp.fasta as the query (so, we are using known heat shock proteins from the hsp.fasta file to look for heat shock proteins in the unknown thermophile's protein list): 
+7. Run a BLASTP against the unknown thermophile proteins with the hsp.fasta as the query (so, we are using known heat shock proteins from the hsp.fasta file to look for heat shock proteins in the unknown thermophile's protein list): blastp -db Unk_therm.faa -query HSP_prot.fasta -out HSP_BLASTP.txt -outfmt 7
 8. Please note for these questions that I am using the "Twighlight Zone of protein homology" as a reference and am not selecting anything outside of the safe zone. Also nothing with an E value above 1.00e-10 will be considered
 9. (1) How many HSPs were found in the unknown organism?: Six putative heat shock proteins: Unk_30, Unk_31, Unk_1842, Unk_1860, Unk_1970, Unk_1985
 10. (2) Provide your justification for how many HSPs were in the organism (use information in the BLAST ouput E-value, length, percent ID, etc)
