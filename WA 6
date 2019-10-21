@@ -7,7 +7,7 @@
 7. Run a BLASTP against the unknown thermophile proteins with the hsp.fasta as the query (so, we are using known heat shock proteins from the hsp.fasta file to look for heat shock proteins in the unknown thermophile's protein list): blastp -db Unk_therm.faa -query HSP_prot.fasta -out HSP_BLASTP.txt -outfmt 7
 8. Please note for these questions that I am using the "Twighlight Zone of protein homology" as a reference and am not selecting anything outside of the safe zone. Also nothing with an E value above 1.00e-10 will be considered
 9. (1) How many HSPs were found in the unknown organism?: Six putative heat shock proteins: Unk_30, Unk_31, Unk_1842, Unk_1860, Unk_1970, Unk_1985 (Unk_1863 feel out of the safe zone, so I am not including it)
-10. (2) Provide your justification for how many HSPs were in the organism (use information in the BLAST ouput E-value, length, percent ID, etc)
+10. (2) Provide your justification for how many HSPs were in the organism (use information in the BLAST output E-value, length, percent ID, etc)
   10.a (Unk_30): Looks great - 62% identity with an alignment length of 537 bp. The E value is alsogood at 0.0
   10.b (Unk_31): Looks great - 59% identity with a length of 92 bp. The E value is good at 5.53e-34
   10.c (Unk_1842): Looks great - 42% identity with an alignment length of 559 bp. The E value is good at 1.57e-139
