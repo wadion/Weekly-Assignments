@@ -13,3 +13,16 @@ library(DESeq2)
 Open the assignment data from GitHub, right-click, save as WA8_counts.csv and WA8_Metadata.csv
 counts <- read.csv("H:/diff_express/class_data/WA8_counts.csv")
 meta <- read.csv("H:/diff_express/class_data/WA8_Metadata.csv")
+#Check that the column names of the count data are the same as the IDs from the Metadata (exluding the ensgene)
+names(counts)[-1]
+meta$id
+names(counts)[-1]==meta$id
+all(names(counts)[-1]==meta$id)
+#Create the DESeq object
+dds.data <- DESeqDataSetFromMatrix(countData = counts, colData = meta, design = ~dex, tidy = TRUE)
+#Note that I needed to rerun library(DESeq2) for the above command to work
+#Run DESeq
+dds <- DESeq(dds.data)
+#Gather results
+res <- results(dds, tidy = TRUE)
+rex <- tbl_df(res)
