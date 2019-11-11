@@ -10,3 +10,6 @@ library(readr)
 library(tidyverse)
 library(DESeq2)
 #Begin the assignment
+Open the assignment data from GitHub, right-click, save as WA8_counts.csv and WA8_Metadata.csv
+counts <- read.csv("H:/diff_express/class_data/WA8_counts.csv")
+meta <- read.csv("H:/diff_express/class_data/WA8_Metadata.csv")
