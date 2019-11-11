@@ -1,11 +1,12 @@
+#install the packages for the Weekly Assignment 8
 install.packages("tidyverse")
 if (!requireNamespace("BiocManager", quietly = TRUE))
 install.packages("BiocManager")                                                                      
 BiocManager::install("DESeq2")
-#update all
-a 
+#update all by typing "a"
 install.packages("readr")
 install.packages("tidyverse")
 library(readr)
 library(tidyverse)
 library(DESeq2)
+#Begin the assignment
