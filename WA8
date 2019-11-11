@@ -25,4 +25,4 @@ dds.data <- DESeqDataSetFromMatrix(countData = counts, colData = meta, design = 
 dds <- DESeq(dds.data)
 #Gather results
 res <- results(dds, tidy = TRUE)
-rex <- tbl_df(res)
+res <- tbl_df(res)
