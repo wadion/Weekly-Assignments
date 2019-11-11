@@ -6,3 +6,6 @@ BiocManager::install("DESeq2")
 a 
 install.packages("readr")
 install.packages("tidyverse")
+library(readr)
+library(tidyverse)
+library(DESeq2)
