@@ -4,3 +4,5 @@ install.packages("BiocManager")
 BiocManager::install("DESeq2")
 #update all
 a 
+install.packages("readr")
+install.packages("tidyverse")
