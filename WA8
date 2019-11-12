@@ -28,7 +28,7 @@ res <- results(dds, tidy = TRUE)
 res <- tbl_df(res)
 #Work with the res file
 res2 <- arrange(res, padj)
-#How many significantly differnt genes?
+#How many significantly different genes?
 res3 <- filter(res2, padj<=0.05 & log2FoldChange>=2)
 res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
 view(res2)
