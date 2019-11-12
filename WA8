@@ -26,3 +26,11 @@ dds <- DESeq(dds.data)
 #Gather results
 res <- results(dds, tidy = TRUE)
 res <- tbl_df(res)
+#Work with the res file
+res2 <- arrange(res, padj)
+#How many significantly differnt genes?
+res3 <- filter(res2, padj<=0.05 & log2FoldChange>=2)
+res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
+view(res2)
+view(res3)
+view(res4)
