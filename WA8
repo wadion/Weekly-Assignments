@@ -34,3 +34,7 @@ res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
 view(res2)
 view(res3)
 view(res4)
+
+##remember, the change in gene expression was done as a ration of control / mutant ---> if there is higher expression in the control the ratio is greater than 1, and if
+##there is greater expression in the mutant than the ratio is less than 1
+##we are using log10, so a positive fold-change means higher expression in the control, while a negative log-fold change means higher expression in the mutant
