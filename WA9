@@ -1,0 +1,76 @@
+#install the packages for the Weekly Assignment 8
+install.packages("tidyverse")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")                                                                      
+BiocManager::install("DESeq2")
+#update all by typing "a"
+install.packages("readr")
+install.packages("tidyverse")
+library(readr)
+library(tidyverse)
+library(DESeq2)
+#Begin the assignment
+#Open the assignment data from GitHub, right-click, save as WA8_counts.csv and WA8_Metadata.csv
+counts <- read.csv("H:/diff_express/class_data/WA8_counts.csv")
+meta <- read.csv("H:/diff_express/class_data/WA8_Metadata.csv")
+#Check that the column names of the count data are the same as the IDs from the Metadata (exluding the ensgene)
+names(counts)[-1]
+meta$id
+names(counts)[-1]==meta$id
+all(names(counts)[-1]==meta$id)
+#Create the DESeq object
+dds.data <- DESeqDataSetFromMatrix(countData = counts, colData = meta, design = ~dex, tidy = TRUE)
+#Note that I needed to rerun library(DESeq2) for the above command to work
+#Run DESeq
+dds <- DESeq(dds.data)
+#Gather results
+res <- results(dds, tidy = TRUE)
+res <- tbl_df(res)
+#Work with the res file
+res2 <- arrange(res, padj)
+#How many significantly different genes?
+res3 <- filter(res2, padj<=0.05 & log2FoldChange>=2)
+res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
+view(res2)
+view(res3)
+view(res4)
+#Add significance column
+res=mutate(res,significance=ifelse(padj<0.05,"Significant","Non-significant"))
+#Make a volcano plot showing differentially expressed genes - color the Control points blue and the Mutant points Red
+ggplot(res) +
+  geom_point(aes(x=log2FoldChange, y=-log10(padj), colour=significance)) +
+  ggtitle("Differentially Expressed Genes") +
+  xlab("log2 fold change") +
+  ylab("-log10 adjusted p-value") +
+  #scale_y_continuous(limits = c(0,50)) +
+  theme(legend.position = "none",
+        plot.title = element_text(size = rel(1.5), hjust = 0.5),
+        axis.title = element_text(size = rel(1.25)))  +
+  theme_bw()
+#Make a box plot of the expression of the gene with the highest positive fold change
+plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex")
+plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE)
+plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE) %>%
+  ggplot(aes(dex,count))+
+  geom_boxplot()
+plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE) %>%
+  ggplot(aes(dex,count))+
+  geom_boxplot(aes(fill=dex))+
+  scale_y_log10() + 
+  ggtitle("Solyc11g028040.1.1 Expression")
+#Make a box plot of the expression of the gene with the highest negative fold change
+plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex")
+plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex", returnData=TRUE)
+plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex", returnData=TRUE) %>%
+  ggplot(aes(dex,count))+
+  geom_boxplot()
+plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex", returnData=TRUE) %>%
+  ggplot(aes(dex,count))+
+  geom_boxplot(aes(fill=dex))+
+  scale_y_log10() + 
+  ggtitle("Solyc09g089500.2.1 Expression")
+#Make an MA plot. MA plots are log10 of the mean expression (baseMean) of a gene on the x-axis and log2FoldChange on the y-axis
+#Reference: https://chapmandu2.github.io/post/2017/02/21/bioinformatics-in-the-tidyverse/
+ma_plot <- ggplot(res, aes(log2(baseMean), log2FoldChange, colour=padj<0.1)) + 
+  geom_point(size=rel(0.5), aes(text=row)) + theme_bw()
+ma_plot
