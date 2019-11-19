@@ -58,7 +58,7 @@ plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex", returnData=TRUE) %>%
   ggplot(aes(dex,count))+
   geom_boxplot(aes(fill=dex))+
   scale_y_log10() + 
-  ggtitle("Solyc09g089500.2.1 Expression")
+  ggtitle("Highest Positive Fold Change: Solyc09g089500.2.1 Expression")
 #Make a box plot of the expression of the gene with the highest negative fold change
 plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex")
 plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE)
@@ -69,12 +69,9 @@ plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE) %>%
   ggplot(aes(dex,count))+
   geom_boxplot(aes(fill=dex))+
   scale_y_log10() + 
-  ggtitle("Solyc11g028040.1.1 Expression")
+  ggtitle("Highest Negative Fold Change: Solyc11g028040.1.1 Expression")
 #Make an MA plot. MA plots are log10 of the mean expression (baseMean) of a gene on the x-axis and log2FoldChange on the y-axis
 #Reference: https://chapmandu2.github.io/post/2017/02/21/bioinformatics-in-the-tidyverse/
 ma_plot <- ggplot(res, aes(log2(baseMean), log2FoldChange, colour=padj<0.1)) + 
   geom_point(size=rel(0.5), aes(text=row)) + theme_bw()
 ma_plot
-
-
-
