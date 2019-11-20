@@ -36,9 +36,10 @@ view(res2)
 view(res3)
 view(res4)
 #Add significance column
-res=mutate(res,significance=ifelse(padj<0.05,"Significant","Non-significant"))
+res=mutate(res,significance=ifelse(padj<0.05 & log2FoldChange>=2,"Control", ifelse(padj<0.05 & log2FoldChange<=-2,"Mutant", "Non-significant")))
+
 #Make a volcano plot showing differentially expressed genes - color the Control points blue and the Mutant points Red
-ggplot(res) +
+volcano <- ggplot(res) +
   geom_point(aes(x=log2FoldChange, y=-log10(padj), colour=significance)) +
   ggtitle("Differentially Expressed Genes") +
   xlab("log2 fold change") +
@@ -48,6 +49,7 @@ ggplot(res) +
         plot.title = element_text(size = rel(1.5), hjust = 0.5),
         axis.title = element_text(size = rel(1.25)))  +
   theme_bw()
+volcano + scale_colour_manual(values = c("blue", "red", "green"))
 #Make a box plot of the expression of the gene with the highest positive fold change
 plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex")
 plotCounts(dds, gene="Solyc09g089500.2.1", intgroup="dex", returnData=TRUE)
