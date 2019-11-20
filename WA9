@@ -37,7 +37,6 @@ view(res3)
 view(res4)
 #Add significance column
 res=mutate(res,significance=ifelse(padj<0.05 & log2FoldChange>=2,"Control", ifelse(padj<0.05 & log2FoldChange<=-2,"Mutant", "Non-significant")))
-
 #Make a volcano plot showing differentially expressed genes - color the Control points blue and the Mutant points Red
 volcano <- ggplot(res) +
   geom_point(aes(x=log2FoldChange, y=-log10(padj), colour=significance)) +
@@ -74,6 +73,6 @@ plotCounts(dds, gene="Solyc11g028040.1.1", intgroup="dex", returnData=TRUE) %>%
   ggtitle("Highest Negative Fold Change: Solyc11g028040.1.1 Expression")
 #Make an MA plot. MA plots are log10 of the mean expression (baseMean) of a gene on the x-axis and log2FoldChange on the y-axis
 #Reference: https://chapmandu2.github.io/post/2017/02/21/bioinformatics-in-the-tidyverse/
-ma_plot <- ggplot(res, aes(log2(baseMean), log2FoldChange, colour=padj<0.1)) + 
-  geom_point(size=rel(0.5), aes(text=row)) + theme_bw()
+ma_plot <- ggplot(res, aes(log2(baseMean), log2FoldChange, colour=padj<0.5)) + 
+  geom_point(size=rel(1.5), aes(text=row)) + theme_bw() + ggtitle("MA Plot")
 ma_plot
