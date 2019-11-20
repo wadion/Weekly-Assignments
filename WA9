@@ -1,4 +1,4 @@
-#install the packages for the Weekly Assignment 8
+#Begin WA 8
 install.packages("tidyverse")
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")                                                                      
@@ -35,6 +35,9 @@ res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
 view(res2)
 view(res3)
 view(res4)
+
+
+#Begin WA 9 - packages and data are from WA 8 above
 #Add significance column
 res=mutate(res,significance=ifelse(padj<0.05 & log2FoldChange>=2,"Control", ifelse(padj<0.05 & log2FoldChange<=-2,"Mutant", "Non-significant")))
 #Make a volcano plot showing differentially expressed genes - color the Control points blue and the Mutant points Red
